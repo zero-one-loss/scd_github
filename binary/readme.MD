@@ -29,7 +29,7 @@ Introduction
     scd01-cross-entropy-mlp, scd01-cross-entropy-mlp-bnn. All variations are trained through 
     `train_scd4.py`.
     
-        Example
+    Example
     
         python train_scd4.py --nrows 0.75 --nfeatures 1 --w-inc1 0.17 --w-inc2 0.2 --hidden-nodes 20 --num-iters 1000 \
         --b-ratio 0.2 --updated-features 128 --round 100 --interval 20 --n-jobs 2 --num-gpus 2  --save --n_classes 2 --iters 1 \
