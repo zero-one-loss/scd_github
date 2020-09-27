@@ -1,12 +1,5 @@
 #!/bin/bash -l
 
-#SBATCH -p datasci
-
-
-#SBATCH --job-name=cifar10_job
-#SBATCH --gres=gpu:2
-#SBATCH --mem=32G
-#SBATCH --cpus-per-task=2
 
 cd ..
 

@@ -4,6 +4,8 @@ Binary Classification and Black-box Attack
 Introduction
 -
 
+**Training scripts parameters for different benchmark descripted in `job` directory**
+
 1. Preparing data
 
     Experiments include three benchmarks data set. MNIST, CIFAR10, IMAGENET.
