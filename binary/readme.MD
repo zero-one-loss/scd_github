@@ -21,13 +21,13 @@ Introduction
     provide file name list `train_mc` and `val_mc` in `data` to help you splitting them. Please modify the code `get_data` in `tools`
     to access your imagenet data path.
     
-2. Train models
+2. Train SCD models
 
     Train a scd model, includes scd01mlp, scd01mlp-bnn, 
     scd01-cross-entropy-mlp, scd01-cross-entropy-mlp-bnn. All variations are trained through 
     `train_scd4.py`.
     
-    Example
+        Example
     
         python train_scd4.py --nrows 0.75 --nfeatures 1 --w-inc1 0.17 --w-inc2 0.2 --hidden-nodes 20 --num-iters 1000 \
         --b-ratio 0.2 --updated-features 128 --round 100 --interval 20 --n-jobs 2 --num-gpus 2  --save --n_classes 2 --iters 1 \
@@ -94,3 +94,50 @@ error, reduce it.
     
     -   `updated-nodes`  How many nodes in the hidden layer will be updated in each iteration. `1` means
     randomly pick one node to update in each iteration.
+    
+3. Train MLP models
+
+    Single run and majority vote are in `train_mlp_major_.py`
+    
+    Example
+    
+        python train_mlp_major_.py --dataset cifar10 --n_classes 2 --hidden-nodes 20 --lr 0.01 --iters 1000 \
+        --seed 2018 --save --target cifar10_mlp_100.pkl --round 100
+        
+4. Train BNN (Binarized Neural Network) models
+
+    [Official Document](https://docs.larq.dev/larq/guides/bnn-optimization/)
+    
+    Training script is `train_binarynn.py`
+    
+    Example
+    
+        python train_binarynn.py --dataset cifar10 --n_classes 2 --hidden-nodes 20 --seed 2018 \
+        --target cifar10_mlpbnn_approx --round 8 --batch-size 64 --lr 0.001 --epoch 100
+
+5. Train ResNet and LeNet
+
+    Training script is `train_lenet_.py`
+    
+    Please modify the code to make sure it use the correct structure. Because **ResNet18** or **ResNet50**
+    are very big, please reduce the number of votes. Set  `--round` to less than 10 is safe.
+    
+    Example
+    
+        python train_lenet_.py --dataset cifar10 --n_classes 2 --round 100 --save \
+        --target cifar10_lenet_100.pkl --seed 2018
+
+
+6. HopSkipJump attack
+
+    [IBM 360 ART library](https://github.com/Trusted-AI/adversarial-robustness-toolbox)
+    
+    Our HopSkipJum attacking script is `hopskipjump_attack.py`
+    
+    Example
+    
+        python hopskipjump_attackpy --dataset cifar10 --n_classes 2 \
+        --target cifar10_scd01mlp_100_br02_h20_nr075_ni1000_i1_0.pkl
+        
+    Please modify the script to satisfy your requirement. The blackbox-model wrapper need to set
+    **the number of classes**. `predictor` need output a one-hot prediction vector.

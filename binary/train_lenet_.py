@@ -47,18 +47,6 @@ if __name__ == '__main__':
 
     train, test, train_label, test_label = load_data(args.dataset, args.n_classes)
 
-    # for c0 in [6]:
-    #     for c1 in [8]:
-    #         print('c0 (%d) vs c1 (%d)' % (c0, c1))
-    #         train = np.concatenate([train_[train_label_ == c0], train_[train_label_ == c1]], axis=0)
-    #         c0_shape = (train_label_ == c0).sum()
-    #         train_label = np.zeros((train.shape[0],), dtype=np.int8)
-    #         train_label[c0_shape:] = 1
-    #
-    #         test = np.concatenate([test_[test_label_ == c0], test_[test_label_ == c1]], axis=0)
-    #         c0_shape = (test_label_ == c0).sum()
-    #         test_label = np.zeros((test.shape[0],), dtype=np.int8)
-    #         test_label[c0_shape:] = 1
 
     if random_patch:
         if args.dataset == 'mnist':
@@ -105,21 +93,7 @@ if __name__ == '__main__':
 
     valid_ds = Dataset(test, test_label)
 
-    # scd = NeuralNetClassifier(
-    #     SimpleNet,
-    #     classes=2,
-    #     max_epochs=30,
-    #     lr=0.001,
-    #     criterion=torch.nn.CrossEntropyLoss,
-    #     # Shuffle training data on each epoch
-    #     iterator_train__shuffle=True,
-    #     train_split=predefined_split(valid_ds),
-    #     batch_size=256,
-    #     optimizer=torch.optim.Adam,
-    #     device='cuda',
-    #     verbose=1,
-    #     warm_start=False,
-    # )
+
     # scd = CNN(args.round, SimpleNet_gtsrb)
     # scd = CNN(args.round, LeNet_gtsrb)
     # scd = CNN(args.round, SimpleNet_celeba)

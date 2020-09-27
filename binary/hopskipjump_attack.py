@@ -14,7 +14,7 @@ class modelWrapper():
 
     def predict_one_hot(self, x_test, **kwargs):
         pred_y = self.model.predict(x_test)
-        pred_one_hot = np.eye(2)[pred_y.astype(int)]
+        pred_one_hot = np.eye(args.n_classes)[pred_y.astype(int)]
 
         return pred_one_hot
 
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     # Create classifier
     classifier = BlackBoxClassifier(predict=predictWrapper.predict_one_hot,
                                     input_shape=input_shape,
-                                    nb_classes=2,
+                                    nb_classes=args.n_classes,
                                     clip_values=(min_pixel_value, max_pixel_value))
 
     print('----- generate adv data by HopSkipJump attack -----')
