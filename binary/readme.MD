@@ -25,8 +25,8 @@ Introduction
     
 2. Train SCD models
 
-    Train a scd model, includes scd01mlp, scd01mlp-bnn, 
-    scd01-cross-entropy-mlp, scd01-cross-entropy-mlp-bnn. All variations are trained through 
+    Train a scd model, includes **scd01mlp**, **scd01mlp-bnn**, 
+    **scd01-cross-entropy-mlp**, **scd01-cross-entropy-mlp-bnn**. All variations are trained through 
     `train_scd4.py`.
     
     Example
@@ -89,7 +89,7 @@ Introduction
 
     -   `width` A parameter to save GPU memory usage. If program give you a **"out of GPU memory"**
 error, reduce it.    
-    -   `metrics`   Ignore it in binary classification
+    -   `metrics`   Ignore it in binary classification.
 
     -   `init` Distribution of initialized weights. `normal` means Normal distribution, `uniform` 
     means uniform distribution. 
