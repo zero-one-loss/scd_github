@@ -121,7 +121,7 @@ error, reduce it.
 
     Training script is `train_lenet_.py`
     
-    Please modify the code to make sure it use the correct structure. Because **ResNet18** or **ResNet50**
+    Please modify the code to make sure it uses the correct structure. Because **ResNet18** or **ResNet50**
     are very big, please reduce the number of votes. Set  `--round` to less than 10 is safe.
     
     Example
