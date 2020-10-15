@@ -1,4 +1,4 @@
-PAPER NAME
+Defending against black-box adversarial attacks with gradient-free trained sign activation neural networks
 =
 
 Guide
